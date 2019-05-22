@@ -1,31 +1,53 @@
 .App {
   text-align: center;
+  color: white;
 }
 
 .florange-logo {
   height: 400px;
   pointer-events: none;
+  user-select: none;
 }
 
 .App-header {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 100px;
+}
+
+.App-footer {
+  height: 100px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-img {
+  width: 400px;
+}
+
+.shopping-cart {
+  position: fixed;
+  right: 16px;
+  top: 16px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  height: 40px;
+  justify-content: space-between;
+}
+
+a {
+  color: white;
 }
