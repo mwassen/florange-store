@@ -4,6 +4,7 @@ import Product from "./Product";
 import Item from "./Item";
 import Modal from "react-modal";
 import logo from "../assets/logo.png";
+import { useSpring, animated } from "react-spring";
 // import poolBg from "../assets/poolbg.png";
 import waterBg from "../assets/waterbg.webm";
 
@@ -16,6 +17,11 @@ function App(props) {
   );
   const [cartModal, setCartModal] = useState(false);
   const [currentCheckout, setCurrentCheckout] = useState();
+
+  const [fade, setFade, stop] = useSpring(() => ({
+    config: { friction: 66 },
+    opacity: 0
+  }));
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -89,9 +95,19 @@ function App(props) {
   return (
     <div className="container">
       {/* <img className="bg-img" src={poolBg} /> */}
-      <video className="bg-vid" autoplay="true" loop="true" muted>
+      <animated.video
+        className="bg-vid"
+        autoPlay
+        loop={true}
+        muted
+        style={fade}
+        onCanPlayThrough={() => {
+          setFade({ opacity: 1 });
+        }}
+      >
         <source src={waterBg} type="video/webm" />
-      </video>
+      </animated.video>
+      <div className="bg-color" />
       <Modal
         isOpen={cartModal}
         onRequestClose={closeCart}
@@ -100,9 +116,10 @@ function App(props) {
         overlayClassName="Overlay"
         closeTimeoutMS={200}
       >
-        <video className="bg-vid" autoplay="true" loop="true" muted>
+        <video className="bg-vid" autoPlay loop={true} muted>
           <source src={waterBg} type="video/webm" />
         </video>
+        <div className="bg-color" />
         <div className="modal-header" />
 
         {currentCheckout && currentCheckout.lineItems.length > 0 ? (
@@ -134,7 +151,12 @@ function App(props) {
 
       <div id="App">
         <header className="App-header">
-          <img src={logo} className="florange-logo" alt="logo" />
+          <animated.img
+            src={logo}
+            className="florange-logo"
+            alt="logo"
+            style={fade}
+          />
         </header>
 
         {products.map(product => {

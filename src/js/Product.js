@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Variant from "./Variant";
+import { useSpring, animated } from "react-spring";
 import "../css/App.css";
 
 function Product(props) {
   const [selectVariant, setSelectVariant] = useState(props.data.variants[0]);
+
+  const [fade, setFade] = useSpring(() => ({
+    config: { friction: 66 },
+    opacity: 0
+  }));
 
   function handleSizeChange(newSize) {
     setSelectVariant(newSize);
@@ -15,11 +21,14 @@ function Product(props) {
   }
 
   return (
-    <div className="product">
+    <animated.div className="product" style={fade}>
       <img
         className="product-img"
         alt={props.data.title + " image"}
         src={props.data.images[0].src}
+        onLoad={() => {
+          setFade({ opacity: 1 });
+        }}
       />
       <div className="product-name">{props.data.title}</div>
       <div className="product-price">
@@ -48,13 +57,13 @@ function Product(props) {
           <span role="img" aria-label="skull emoji">
             💀
           </span>
-          sold out{" "}
-          <span role="img" aria-label="skull emoji">
+          sold out
+          {/* <span role="img" aria-label="skull emoji">
             💀
-          </span>
+          </span> */}
         </div>
       )}
-    </div>
+    </animated.div>
   );
 }
 
