@@ -3,6 +3,7 @@ import Product from "./Product";
 import Item from "./Item";
 import Modal from "react-modal";
 import logo from "../assets/logo.png";
+import poolBg from "../assets/poolbg.png";
 import "../css/App.css";
 
 function App(props) {
@@ -84,7 +85,8 @@ function App(props) {
   }
 
   return (
-    <div>
+    <div className="container">
+      <img className="bg-img" src={poolBg} />
       <Modal
         isOpen={cartModal}
         onRequestClose={closeCart}
@@ -95,7 +97,7 @@ function App(props) {
       >
         <div className="modal-header" />
 
-        {currentCheckout && currentCheckout.lineItems.length > 0 && (
+        {currentCheckout && currentCheckout.lineItems.length > 0 ? (
           <div>
             <div className="cart-contents">
               {currentCheckout.lineItems.map(item => {
@@ -114,6 +116,8 @@ function App(props) {
               </div>
             </div>
           </div>
+        ) : (
+          <div>your cart is empty</div>
         )}
         <div className="close-modal" onClick={closeCart}>
           back

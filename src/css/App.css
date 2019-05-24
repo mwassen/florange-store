@@ -2,10 +2,20 @@ html {
   background-color: #357cbd;
 }
 
+.container {
+}
+
+.bg-img {
+  object-fit: cover;
+  user-select: none;
+  position: fixed;
+  z-index: -1;
+}
+
 #App {
   text-align: center;
   color: white;
-  font-family: "Futura", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .florange-logo {
@@ -84,6 +94,7 @@ html {
 
 .size {
   cursor: pointer;
+  font-size: 20px;
   width: 80px;
 }
 
@@ -95,12 +106,15 @@ html {
 .selected {
   width: 80px;
   font-weight: 800;
+  font-size: 20px;
   box-sizing: border-box;
+  border-radius: 5px;
   border-style: solid;
   border-width: 3px;
 }
 
 .add-to-cart {
+  user-select: none;
   font-size: 20px;
   cursor: pointer;
 }
@@ -246,6 +260,6 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  font-family: "Futura", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 20px;
 }
