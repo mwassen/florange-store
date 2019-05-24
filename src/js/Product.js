@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Variant from "./Variant";
 import "../css/App.css";
 
@@ -15,12 +15,16 @@ function Product(props) {
 
   return (
     <div>
-      <img className="product-img" src={props.data.images[0].src} />
+      <img
+        className="product-img"
+        alt={props.data.title + " image"}
+        src={props.data.images[0].src}
+      />
       <h2>{props.data.title}</h2>
       <div className="product-price">
         {props.data.variants[0].price.split(".")[0]}€
       </div>
-      {props.data.variants[0].title != "Default Title" && (
+      {props.data.variants[0].title !== "Default Title" && (
         <div className="product-variants">
           {props.data.variants.map(variant => {
             return (

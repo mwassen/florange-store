@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../css/App.css";
 
 function Variant(props) {
@@ -9,7 +9,7 @@ function Variant(props) {
   return (
     <div
       className={
-        props.data.title == props.selected.title ? "size selected" : "size"
+        props.data.title === props.selected.title ? "size selected" : "size"
       }
       key={props.data.id}
       onClick={onSizeClick}

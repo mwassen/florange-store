@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
+import Item from "./Item";
+import Modal from "react-modal";
 import logo from "../assets/logo.png";
 import "../css/App.css";
 
@@ -8,6 +10,8 @@ function App(props) {
   const [checkoutId, setCheckoutId] = useState(
     localStorage.getItem("checkoutId")
   );
+  const [cartModal, setCartModal] = useState(false);
+  const [currentCheckout, setCurrentCheckout] = useState();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -19,16 +23,19 @@ function App(props) {
 
   useEffect(() => {
     if (checkoutId == null) {
-      console.log("creating new cart");
+      // console.log("creating new cart");
       props.client.checkout.create().then(checkout => {
         localStorage.setItem("checkoutId", checkout.id);
+        setCurrentCheckout(checkout);
         setCheckoutId(checkout.id);
       });
     } else {
-      console.log("loading existing cart");
+      // console.log("loading existing cart");
       props.client.checkout
         .fetch(checkoutId)
-        .then(checkout => {})
+        .then(checkout => {
+          setCurrentCheckout(checkout);
+        })
         .catch(error => {
           props.client.checkout.create().then(checkout => {
             localStorage.setItem("checkoutId", checkout.id);
@@ -44,13 +51,21 @@ function App(props) {
       quantity: 1
     };
 
-    console.log(checkoutId);
-
     props.client.checkout
       .addLineItems(checkoutId, lineItemsToAdd)
       .then(checkout => {
-        // Do something with the updated checkout
-        console.log(checkout.lineItems); // Array with one additional line item
+        setCurrentCheckout(checkout);
+      });
+  }
+
+  function removeFromCart(variant) {
+    const lineItemIdsToRemove = [variant];
+
+    props.client.checkout
+      .removeLineItems(checkoutId, lineItemIdsToRemove)
+      .then(checkout => {
+        setCurrentCheckout(checkout);
+        console.log(checkout);
       });
   }
 
@@ -60,33 +75,74 @@ function App(props) {
     });
   }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="florange-logo" alt="logo" />
-      </header>
+  function openCart(e) {
+    setCartModal(true);
+  }
 
-      {products.map(product => {
-        return (
-          <Product
-            key={product.id}
-            data={product}
-            cart={addToCart}
-            // images={product.images}
-            // title={product.title}
-            // price={}
-          />
-        );
-      })}
-      <footer className="App-footer" />
-      <div className="shopping-cart" onClick={openShopifyCart}>
-        Cart
-      </div>
-      <div className="contact-links">
-        <a href="https://www.instagram.com/florangedesign/" target="_blank">
-          Instagram
-        </a>
-        <a href="mailto:someone@yoursite.com">Contact</a>
+  function closeCart() {
+    setCartModal(false);
+  }
+
+  return (
+    <div>
+      <Modal
+        isOpen={cartModal}
+        onRequestClose={closeCart}
+        appElement={document.getElementById("App")}
+      >
+        {currentCheckout && (
+          <div>
+            <div className="cart-contents">
+              {currentCheckout.lineItems.map(item => {
+                return (
+                  <Item data={item} removeItem={removeFromCart} key={item.id} />
+                );
+              })}
+            </div>
+            <div className="total-price">
+              total:{" "}
+              {currentCheckout && currentCheckout.totalPrice.split(".")[0]}€
+            </div>
+            {currentCheckout.lineItems.length > 0 && (
+              <button className="checkout-btn" onClick={openShopifyCart}>
+                Check Out
+              </button>
+            )}
+          </div>
+        )}
+      </Modal>
+
+      <div id="App">
+        <header className="App-header">
+          <img src={logo} className="florange-logo" alt="logo" />
+        </header>
+
+        {products.map(product => {
+          return (
+            <Product
+              key={product.id}
+              data={product}
+              cart={addToCart}
+              // images={product.images}
+              // title={product.title}
+              // price={}
+            />
+          );
+        })}
+        <footer className="App-footer" />
+        <div className="shopping-cart" onClick={openCart}>
+          Cart
+        </div>
+        <div className="contact-links">
+          <a
+            href="https://www.instagram.com/florangedesign/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+          <a href="mailto:someone@yoursite.com">Contact</a>
+        </div>
       </div>
     </div>
   );
