@@ -4,7 +4,9 @@ import Product from "./Product";
 import Item from "./Item";
 import Modal from "react-modal";
 import logo from "../assets/logo.png";
-import poolBg from "../assets/poolbg.png";
+// import poolBg from "../assets/poolbg.png";
+import waterBg from "../assets/waterbg.webm";
+
 import "../css/App.css";
 
 function App(props) {
@@ -86,7 +88,10 @@ function App(props) {
 
   return (
     <div className="container">
-      <img className="bg-img" src={poolBg} />
+      {/* <img className="bg-img" src={poolBg} /> */}
+      <video className="bg-vid" autoplay="true" loop="true" muted>
+        <source src={waterBg} type="video/webm" />
+      </video>
       <Modal
         isOpen={cartModal}
         onRequestClose={closeCart}
@@ -95,6 +100,9 @@ function App(props) {
         overlayClassName="Overlay"
         closeTimeoutMS={200}
       >
+        <video className="bg-vid" autoplay="true" loop="true" muted>
+          <source src={waterBg} type="video/webm" />
+        </video>
         <div className="modal-header" />
 
         {currentCheckout && currentCheckout.lineItems.length > 0 ? (
