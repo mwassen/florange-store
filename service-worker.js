@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/florange-store/precache-manifest.3942e7e604d69159b80cb6e8703d07b8.js"
+  "/florange-store/precache-manifest.b8200fd55d69746fd79efb586a961d4e.js"
 );
 
 self.addEventListener('message', (event) => {
