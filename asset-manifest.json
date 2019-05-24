@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/florange-store/static/css/main.a0dac672.chunk.css",
+    "main.js": "/florange-store/static/js/main.4edcc0d5.chunk.js",
+    "main.js.map": "/florange-store/static/js/main.4edcc0d5.chunk.js.map",
+    "runtime~main.js": "/florange-store/static/js/runtime~main.9de3f624.js",
+    "runtime~main.js.map": "/florange-store/static/js/runtime~main.9de3f624.js.map",
+    "static/js/2.e7f4d7eb.chunk.js": "/florange-store/static/js/2.e7f4d7eb.chunk.js",
+    "static/js/2.e7f4d7eb.chunk.js.map": "/florange-store/static/js/2.e7f4d7eb.chunk.js.map",
+    "index.html": "/florange-store/index.html",
+    "precache-manifest.9b87a04e2e3e49c28f631c1030323b4c.js": "/florange-store/precache-manifest.9b87a04e2e3e49c28f631c1030323b4c.js",
+    "service-worker.js": "/florange-store/service-worker.js",
+    "static/css/main.a0dac672.chunk.css.map": "/florange-store/static/css/main.a0dac672.chunk.css.map",
+    "static/media/logo.png": "/florange-store/static/media/logo.04958462.png",
+    "static/media/index.css": "/florange-store/static/media/poolbg.332dd5d3.png"
+  }
+}
