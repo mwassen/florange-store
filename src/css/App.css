@@ -48,6 +48,19 @@
   justify-content: space-between;
 }
 
+.product-variants {
+}
+
+.size {
+  display: inline;
+  margin: 0px 20px 0px 20px;
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: 800;
+}
+
 a {
   color: white;
 }

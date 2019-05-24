@@ -5,7 +5,9 @@ import "../css/App.css";
 
 function App(props) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState();
+  const [checkoutId, setCheckoutId] = useState(
+    localStorage.getItem("checkoutId")
+  );
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,13 +18,11 @@ function App(props) {
   }, []);
 
   useEffect(() => {
-    let checkoutId = localStorage.getItem("checkoutId");
-
     if (checkoutId == null) {
       console.log("creating new cart");
       props.client.checkout.create().then(checkout => {
         localStorage.setItem("checkoutId", checkout.id);
-        checkoutId = checkout.id;
+        setCheckoutId(checkout.id);
       });
     } else {
       console.log("loading existing cart");
@@ -32,11 +32,33 @@ function App(props) {
         .catch(error => {
           props.client.checkout.create().then(checkout => {
             localStorage.setItem("checkoutId", checkout.id);
-            checkoutId = checkout.id;
+            setCheckoutId(checkout.id);
           });
         });
     }
   }, []);
+
+  function addToCart(variant) {
+    const lineItemsToAdd = {
+      variantId: variant,
+      quantity: 1
+    };
+
+    console.log(checkoutId);
+
+    props.client.checkout
+      .addLineItems(checkoutId, lineItemsToAdd)
+      .then(checkout => {
+        // Do something with the updated checkout
+        console.log(checkout.lineItems); // Array with one additional line item
+      });
+  }
+
+  function openShopifyCart(e) {
+    props.client.checkout.fetch(checkoutId).then(checkout => {
+      if (checkout.lineItems.length > 0) window.open(checkout.webUrl);
+    });
+  }
 
   return (
     <div className="App">
@@ -49,6 +71,7 @@ function App(props) {
           <Product
             key={product.id}
             data={product}
+            cart={addToCart}
             // images={product.images}
             // title={product.title}
             // price={}
@@ -56,7 +79,9 @@ function App(props) {
         );
       })}
       <footer className="App-footer" />
-      <div className="shopping-cart">Cart</div>
+      <div className="shopping-cart" onClick={openShopifyCart}>
+        Cart
+      </div>
       <div className="contact-links">
         <a href="https://www.instagram.com/florangedesign/" target="_blank">
           Instagram
