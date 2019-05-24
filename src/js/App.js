@@ -89,8 +89,13 @@ function App(props) {
         isOpen={cartModal}
         onRequestClose={closeCart}
         appElement={document.getElementById("App")}
+        className="Modal"
+        overlayClassName="Overlay"
+        closeTimeoutMS={200}
       >
-        {currentCheckout && (
+        <div className="modal-header" />
+
+        {currentCheckout && currentCheckout.lineItems.length > 0 && (
           <div>
             <div className="cart-contents">
               {currentCheckout.lineItems.map(item => {
@@ -99,17 +104,20 @@ function App(props) {
                 );
               })}
             </div>
-            <div className="total-price">
-              total:{" "}
-              {currentCheckout && currentCheckout.totalPrice.split(".")[0]}€
+            <div className="modal-footer">
+              <div className="total-price">
+                total:{" "}
+                {currentCheckout && currentCheckout.totalPrice.split(".")[0]}€
+              </div>
+              <div className="checkout-btn" onClick={openShopifyCart}>
+                check out
+              </div>
             </div>
-            {currentCheckout.lineItems.length > 0 && (
-              <button className="checkout-btn" onClick={openShopifyCart}>
-                Check Out
-              </button>
-            )}
           </div>
         )}
+        <div className="close-modal" onClick={closeCart}>
+          back
+        </div>
       </Modal>
 
       <div id="App">

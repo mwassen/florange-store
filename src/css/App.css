@@ -1,6 +1,11 @@
+html {
+  background-color: #357cbd;
+}
+
 #App {
   text-align: center;
   color: white;
+  font-family: "Futura", sans-serif;
 }
 
 .florange-logo {
@@ -16,7 +21,7 @@
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .App-footer {
@@ -36,6 +41,11 @@
   right: 16px;
   top: 16px;
   cursor: pointer;
+  font-size: 18px;
+}
+
+.shopping-cart:hover {
+  color: orange;
 }
 
 .contact-links {
@@ -45,23 +55,197 @@
   position: fixed;
   right: 16px;
   bottom: 16px;
-  height: 40px;
+  height: 50px;
   justify-content: space-between;
+  font-size: 18px;
+}
+
+.product {
+  margin-bottom: 70px;
+}
+
+.product-name {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .product-variants {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .size {
-  display: inline;
-  margin: 0px 20px 0px 20px;
   cursor: pointer;
+  width: 80px;
+}
+
+.size:hover {
+  font-weight: 800;
+  color: orange;
 }
 
 .selected {
+  width: 80px;
   font-weight: 800;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 3px;
+}
+
+.add-to-cart {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  color: orange;
+}
+
+.sold-out {
+  font-size: 20px;
 }
 
 a {
   color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: orange;
+}
+
+.cart-item {
+  width: 90vw;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr;
+  grid-gap: 10px;
+
+  margin: 10px 0px 10px 0px;
+}
+
+.remove-item {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 900;
+  cursor: pointer;
+  grid-column: 1 / 2;
+  width: 20px;
+}
+
+.remove-item:hover {
+  color: orange;
+}
+
+.item-quantity {
+  grid-column: 2 / 3;
+}
+
+.item-image {
+  grid-column: 3 / 4;
+  width: 100%;
+}
+
+.item-name {
+  grid-column: 4 / 5;
+}
+
+.item-size {
+  grid-column: 5 / 6;
+}
+
+.item-price {
+  grid-column: 6 / 7;
+}
+
+.close-modal {
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  width: 100px;
+  font-size: 16px;
+  border-style: solid;
+  border-width: 3px;
+}
+
+.close-modal:hover {
+  color: orange;
+}
+
+.modal-header {
+}
+
+.modal-footer {
+  margin-top: 70px;
+  width: 90vw;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.total-price {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.checkout-btn {
+  cursor: pointer;
+  text-align: center;
+  width: 180px;
+  font-size: 24px;
+  border-style: solid;
+  border-width: 3px;
+}
+
+.checkout-btn:hover {
+  color: orange;
+}
+
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.Modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/poolbg.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: "Futura", sans-serif;
+  font-size: 20px;
 }

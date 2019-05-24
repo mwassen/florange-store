@@ -10,12 +10,15 @@ function Item(props) {
 
   return (
     <div className="cart-item">
-      <button className="remove-item" onClick={onRemoveItem}>
-        -
-      </button>
+      <div className="remove-item" onClick={onRemoveItem}>
+        X
+      </div>
       <div className="item-quantity">{props.data.quantity}x</div>
+      <img className="item-image" src={props.data.variant.image.src} />
       <div className="item-name">{props.data.title}</div>
-      <div className="item-size">size {props.data.variant.title}</div>
+      {props.data.variant.title !== "Default Title" && (
+        <div className="item-size">size {props.data.variant.title}</div>
+      )}
       <div className="item-price">
         {props.data.variant.price.split(".")[0]}€
       </div>

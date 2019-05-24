@@ -14,13 +14,13 @@ function Product(props) {
   }
 
   return (
-    <div>
+    <div className="product">
       <img
         className="product-img"
         alt={props.data.title + " image"}
         src={props.data.images[0].src}
       />
-      <h2>{props.data.title}</h2>
+      <div className="product-name">{props.data.title}</div>
       <div className="product-price">
         {props.data.variants[0].price.split(".")[0]}€
       </div>
@@ -38,8 +38,13 @@ function Product(props) {
           })}
         </div>
       )}
-
-      <button onClick={addItem}>Add to cart</button>
+      {selectVariant.available ? (
+        <div className="add-to-cart" onClick={addItem}>
+          add to cart
+        </div>
+      ) : (
+        <div className="sold-out">💀sold out 💀</div>
+      )}
     </div>
   );
 }
