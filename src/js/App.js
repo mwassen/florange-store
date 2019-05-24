@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import Item from "./Item";
@@ -66,7 +67,6 @@ function App(props) {
       .removeLineItems(checkoutId, lineItemIdsToRemove)
       .then(checkout => {
         setCurrentCheckout(checkout);
-        console.log(checkout);
       });
   }
 

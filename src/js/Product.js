@@ -43,7 +43,15 @@ function Product(props) {
           add to cart
         </div>
       ) : (
-        <div className="sold-out">💀sold out 💀</div>
+        <div className="sold-out">
+          <span role="img" aria-label="skull emoji">
+            💀
+          </span>
+          sold out{" "}
+          <span role="img" aria-label="skull emoji">
+            💀
+          </span>
+        </div>
       )}
     </div>
   );
