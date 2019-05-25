@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "535ea634144fbe51a665161693ebfa0c",
+    "revision": "48a28ef428794e66649a5711998ee13e",
     "url": "/florange-store/index.html"
   },
   {
-    "revision": "e56d2f899f65ee8f617b",
-    "url": "/florange-store/static/css/main.923670c7.chunk.css"
+    "revision": "7257fc8a77e7cd52cae1",
+    "url": "/florange-store/static/css/main.aaafc35c.chunk.css"
   },
   {
     "revision": "271c5614ce33efce739d",
     "url": "/florange-store/static/js/2.1e390db4.chunk.js"
   },
   {
-    "revision": "e56d2f899f65ee8f617b",
+    "revision": "7257fc8a77e7cd52cae1",
     "url": "/florange-store/static/js/main.0f7a75fe.chunk.js"
   },
   {
