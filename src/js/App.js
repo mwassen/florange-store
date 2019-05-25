@@ -107,7 +107,6 @@ function App(props) {
       >
         <source src={waterBg} type="video/webm" />
       </animated.video>
-      <div className="bg-color" />
       <Modal
         isOpen={cartModal}
         onRequestClose={closeCart}
@@ -119,7 +118,6 @@ function App(props) {
         <video className="bg-vid" autoPlay loop={true} muted>
           <source src={waterBg} type="video/webm" />
         </video>
-        <div className="bg-color" />
         <div className="modal-header" />
 
         {currentCheckout && currentCheckout.lineItems.length > 0 ? (

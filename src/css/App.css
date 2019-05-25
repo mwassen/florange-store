@@ -3,13 +3,18 @@ html {
 }
 
 .container {
+  position: fixed;
+  background-color: royalblue;
+  height: 100vh;
+  z-index: -1;
+  overflow: scroll;
 }
 
 .bg-img {
   object-fit: cover;
   user-select: none;
   position: fixed;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .bg-vid {
@@ -20,7 +25,7 @@ html {
   width: 110%;
   height: 110%;
   object-fit: cover;
-  z-index: -2;
+  z-index: -1;
 }
 
 .bg-color {
@@ -31,13 +36,17 @@ html {
   width: 110%;
   height: 110%;
   object-fit: cover;
-  z-index: -1;
+  /* z-index: auto; */
 }
 
 #App {
   text-align: center;
   color: white;
   font-family: "Nunito", sans-serif;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .florange-logo {
@@ -65,7 +74,7 @@ html {
 }
 
 .product-img {
-  width: 400px;
+  width: 300px;
 }
 
 .shopping-cart {
@@ -94,6 +103,18 @@ html {
 
 .product {
   margin-bottom: 70px;
+  width: 90vw;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-details {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .product-name {
@@ -107,7 +128,6 @@ html {
 }
 
 .product-variants {
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,12 +157,15 @@ html {
 
 .add-to-cart {
   height: 25px;
+  width: 100px;
   user-select: none;
   font-size: 20px;
   cursor: pointer;
 }
 
 .add-to-cart:hover {
+  border-bottom: 2px solid #e9be58;
+  padding-bottom: 3px;
   color: #e9be58;
 }
 
@@ -160,14 +183,18 @@ a:hover {
   color: #e9be58;
 }
 
-.cart-item {
+.cart-contents {
   width: 90vw;
   max-width: 500px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 3fr 1fr 1fr;
-  grid-gap: 10px;
+}
 
+.cart-item {
+  display: flex;
+  flex-direction: row;
   margin: 10px 0px 10px 0px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
 }
 
 .remove-item {
@@ -177,6 +204,7 @@ a:hover {
   cursor: pointer;
   grid-column: 1 / 2;
   width: 20px;
+  margin-right: 20px;
 }
 
 .remove-item:hover {
@@ -184,20 +212,23 @@ a:hover {
 }
 
 .item-quantity {
-  grid-column: 2 / 3;
+  width: 30px;
+  margin-right: 20px;
 }
 
 .item-image {
-  grid-column: 3 / 4;
-  width: 100%;
+  width: 70px;
+  margin-right: 20px;
 }
 
 .item-name {
-  grid-column: 4 / 5;
+  width: 150px;
+  margin-right: 20px;
 }
 
 .item-size {
-  grid-column: 5 / 6;
+  width: 70px;
+  margin-right: 20px;
 }
 
 .item-price {

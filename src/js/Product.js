@@ -30,39 +30,41 @@ function Product(props) {
           setFade({ opacity: 1 });
         }}
       />
-      <div className="product-name">{props.data.title}</div>
-      <div className="product-price">
-        {props.data.variants[0].price.split(".")[0]}€
-      </div>
-      {props.data.variants[0].title !== "Default Title" && (
-        <div className="product-variants">
-          {props.data.variants.map(variant => {
-            return (
-              <Variant
-                selected={selectVariant}
-                data={variant}
-                onVariantClick={handleSizeChange}
-                key={variant.id}
-              />
-            );
-          })}
+      <div className="product-details">
+        <div className="product-name">{props.data.title}</div>
+        <div className="product-price">
+          {props.data.variants[0].price.split(".")[0]}€
         </div>
-      )}
-      {selectVariant.available ? (
-        <div className="add-to-cart" onClick={addItem}>
-          add to cart
-        </div>
-      ) : (
-        <div className="sold-out">
-          <span role="img" aria-label="skull emoji">
-            💀
-          </span>
-          sold out
-          {/* <span role="img" aria-label="skull emoji">
+        {props.data.variants[0].title !== "Default Title" && (
+          <div className="product-variants">
+            {props.data.variants.map(variant => {
+              return (
+                <Variant
+                  selected={selectVariant}
+                  data={variant}
+                  onVariantClick={handleSizeChange}
+                  key={variant.id}
+                />
+              );
+            })}
+          </div>
+        )}
+        {selectVariant.available ? (
+          <div className="add-to-cart" onClick={addItem}>
+            add to cart
+          </div>
+        ) : (
+          <div className="sold-out">
+            <span role="img" aria-label="skull emoji">
+              💀
+            </span>
+            sold out
+            {/* <span role="img" aria-label="skull emoji">
             💀
           </span> */}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </animated.div>
   );
 }
