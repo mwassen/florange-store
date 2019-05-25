@@ -7,7 +7,6 @@ import logo from "../assets/logo.png";
 import { useSpring, animated } from "react-spring";
 // import poolBg from "../assets/poolbg.png";
 import waterBg from "../assets/waterbg.webm";
-import mswsn from "../assets/mswsn-logo.svg";
 
 import "../css/App.css";
 
@@ -19,7 +18,12 @@ function App(props) {
   const [cartModal, setCartModal] = useState(false);
   const [currentCheckout, setCurrentCheckout] = useState();
 
-  const [fade, setFade, stop] = useSpring(() => ({
+  const [videoFade, setVideoFade] = useSpring(() => ({
+    config: { friction: 90 },
+    opacity: 0
+  }));
+
+  const [productFade, setProductFade] = useSpring(() => ({
     config: { friction: 66 },
     opacity: 0
   }));
@@ -28,6 +32,7 @@ function App(props) {
     const fetchProducts = async () => {
       const result = await props.client.product.fetchAll();
       setProducts(result);
+      setProductFade({ opacity: 1 });
     };
     fetchProducts();
   }, [props.client.product]);
@@ -101,9 +106,10 @@ function App(props) {
         autoPlay
         loop={true}
         muted
-        style={fade}
+        playsInline
+        style={videoFade}
         onCanPlayThrough={() => {
-          setFade({ opacity: 1 });
+          setVideoFade({ opacity: 1 });
         }}
       >
         <source src={waterBg} type="video/webm" />
@@ -116,7 +122,7 @@ function App(props) {
         overlayClassName="Overlay"
         closeTimeoutMS={200}
       >
-        <video className="bg-vid" autoPlay loop={true} muted>
+        <video className="bg-vid" autoPlay loop={true} muted playsInline>
           <source src={waterBg} type="video/webm" />
         </video>
         <div className="modal-header" />
@@ -154,7 +160,7 @@ function App(props) {
             src={logo}
             className="florange-logo"
             alt="logo"
-            style={fade}
+            style={productFade}
           />
         </header>
 
@@ -172,7 +178,11 @@ function App(props) {
         })}
         <footer className="App-footer">
           <a href="https://mswsn.io" target="_blank" rel="noopener noreferrer">
-            <div className="made-by-footer" style={fade}>
+            <animated.div
+              className="made-by-footer"
+              style={productFade}
+              delay={100}
+            >
               <div className="site-by">site by</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +218,7 @@ function App(props) {
                   d="M80,13.5H73a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1H85a1,1,0,0,0,1-1V10a1,1,0,0,0-1-1H82a1,1,0,0,0-1,1v2.5A1,1,0,0,1,80,13.5Z"
                 />
               </svg>
-            </div>
+            </animated.div>
           </a>
         </footer>
         <div className="shopping-cart" onClick={openCart}>
