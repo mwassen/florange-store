@@ -7,6 +7,7 @@ import logo from "../assets/logo.png";
 import { useSpring, animated } from "react-spring";
 // import poolBg from "../assets/poolbg.png";
 import waterBg from "../assets/waterbg.webm";
+import mswsn from "../assets/mswsn-logo.svg";
 
 import "../css/App.css";
 
@@ -29,7 +30,7 @@ function App(props) {
       setProducts(result);
     };
     fetchProducts();
-  }, []);
+  }, [props.client.product]);
 
   useEffect(() => {
     if (checkoutId == null) {
@@ -53,7 +54,7 @@ function App(props) {
           });
         });
     }
-  }, []);
+  }, [props.client.checkout, checkoutId]);
 
   function addToCart(variant) {
     const lineItemsToAdd = {
@@ -169,7 +170,47 @@ function App(props) {
             />
           );
         })}
-        <footer className="App-footer" />
+        <footer className="App-footer">
+          <a href="https://mswsn.io" target="_blank" rel="noopener noreferrer">
+            <div className="made-by-footer" style={fade}>
+              <div className="site-by">site by</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 104 18.5"
+                className="mswsn-logo"
+              >
+                <path
+                  class="cls-1"
+                  d="M17.5,0h-3a1,1,0,0,0-1,1V3.5a1,1,0,0,1-1,1h-2a1,1,0,0,1-1-1V1a1,1,0,0,0-1-1h-3a1,1,0,0,0-1,1V3.5a1,1,0,0,1-1,1H1a1,1,0,0,0-1,1v12a1,1,0,0,0,1,1H4a1,1,0,0,0,1-1V6A1,1,0,0,1,6,5H8A1,1,0,0,1,9,6V8.5a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V6a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V17.5a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V5.5a1,1,0,0,0-1-1H19.5a1,1,0,0,1-1-1V1A1,1,0,0,0,17.5,0Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M62,13.5H60a1,1,0,0,1-1-1V10a1,1,0,0,0-1-1H55a1,1,0,0,0-1,1v2.5a1,1,0,0,1-1,1H51a1,1,0,0,1-1-1V1a1,1,0,0,0-1-1H46a1,1,0,0,0-1,1V13a1,1,0,0,0,1,1h2.5a1,1,0,0,1,1,1v2.5a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1v2.5a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V15a1,1,0,0,1,1-1H67a1,1,0,0,0,1-1V1a1,1,0,0,0-1-1H64a1,1,0,0,0-1,1V12.5A1,1,0,0,1,62,13.5Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M28,9.5h3a1,1,0,0,0,1-1V6a1,1,0,0,1,1-1h7a1,1,0,0,0,1-1V1a1,1,0,0,0-1-1H28a1,1,0,0,0-1,1V8.5A1,1,0,0,0,28,9.5Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M35,13.5H28a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1H40a1,1,0,0,0,1-1V10a1,1,0,0,0-1-1H37a1,1,0,0,0-1,1v2.5A1,1,0,0,1,35,13.5Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M99.5,3.5V1a1,1,0,0,0-1-1H91a1,1,0,0,0-1,1V17.5a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V6a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V17.5a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V5.5a1,1,0,0,0-1-1h-2.5A1,1,0,0,1,99.5,3.5Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M73,9.5h3a1,1,0,0,0,1-1V6a1,1,0,0,1,1-1h7a1,1,0,0,0,1-1V1a1,1,0,0,0-1-1H73a1,1,0,0,0-1,1V8.5A1,1,0,0,0,73,9.5Z"
+                />
+                <path
+                  class="cls-1"
+                  d="M80,13.5H73a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1H85a1,1,0,0,0,1-1V10a1,1,0,0,0-1-1H82a1,1,0,0,0-1,1v2.5A1,1,0,0,1,80,13.5Z"
+                />
+              </svg>
+            </div>
+          </a>
+        </footer>
         <div className="shopping-cart" onClick={openCart}>
           Cart
         </div>
