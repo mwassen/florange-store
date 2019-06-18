@@ -8,6 +8,7 @@
     "react-dom": "^16.8.6",
     "react-modal": "^3.8.1",
     "react-scripts": "3.0.1",
+    "react-select": "^3.0.4",
     "react-spring": "^8.0.20",
     "shopify-buy": "^2.2.4"
   },

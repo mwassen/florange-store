@@ -7,9 +7,9 @@ import Item from "./Item";
 function Cart(props) {
   return (
     <div>
-      <video className="bg-vid" autoPlay playsInline loop={true} muted>
+      {/* <video className="bg-vid" autoPlay playsInline loop={true} muted>
         <source src={props.videosrc} type="video/webm" />
-      </video>
+      </video> */}
       <div className="modal-header" />
 
       {props.checkout && props.checkout.lineItems.length > 0 ? (

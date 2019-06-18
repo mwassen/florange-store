@@ -10,6 +10,7 @@ import { useSpring, animated } from "react-spring";
 import waterBg from "../assets/waterbg.webm";
 
 import "../css/App.css";
+import SlideShow from "./SlideShow";
 
 function App(props) {
   const [products, setProducts] = useState([]);
@@ -95,7 +96,11 @@ function App(props) {
     setPageModal({ open: true, type: "cart" });
   }
 
-  function closeCart() {
+  function openSlideShow(e) {
+    setPageModal({ open: true, type: "slides" });
+  }
+
+  function closeModal() {
     setPageModal({ open: false, type: null });
   }
 
@@ -117,19 +122,26 @@ function App(props) {
       </animated.video>
       <Modal
         isOpen={pageModal.open}
-        onRequestClose={closeCart}
+        onRequestClose={closeModal}
         appElement={document.getElementById("App")}
         className="Modal"
         overlayClassName="Overlay"
         closeTimeoutMS={200}
       >
-        <Cart
-          videosrc={waterBg}
-          checkout={currentCheckout}
-          removeItem={removeFromCart}
-          openShopify={openShopifyCart}
-        />
-        <div className="close-modal" onClick={closeCart}>
+        <video className="bg-vid" autoPlay playsInline loop={true} muted>
+          <source src={waterBg} type="video/webm" />
+        </video>
+
+        {pageModal.type === "cart" && (
+          <Cart
+            checkout={currentCheckout}
+            removeItem={removeFromCart}
+            openShopify={openShopifyCart}
+          />
+        )}
+        {pageModal.type === "slides" && <SlideShow />}
+
+        <div className="close-modal" onClick={closeModal}>
           back
         </div>
       </Modal>
@@ -150,6 +162,7 @@ function App(props) {
               key={product.id}
               data={product}
               cart={addToCart}
+              openSlideShow={openSlideShow}
               // images={product.images}
               // title={product.title}
               // price={}

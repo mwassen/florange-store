@@ -88,6 +88,7 @@ html {
 }
 
 .product-img {
+  cursor: pointer;
   width: 300px;
 }
 
@@ -142,10 +143,16 @@ html {
   margin-bottom: 10px;
 }
 
-.product-variants {
+.product-variants-inline {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-variants-dropdown {
+  width: 150px;
+  color: #283f6b;
   margin-bottom: 10px;
 }
 
