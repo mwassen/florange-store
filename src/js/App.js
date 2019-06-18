@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import Item from "./Item";
+import Cart from "./Cart";
 import Modal from "react-modal";
 import logo from "../assets/logo.png";
 import { useSpring, animated } from "react-spring";
@@ -15,7 +16,7 @@ function App(props) {
   const [checkoutId, setCheckoutId] = useState(
     localStorage.getItem("checkoutId")
   );
-  const [cartModal, setCartModal] = useState(false);
+  const [pageModal, setPageModal] = useState({ open: false, type: null });
   const [currentCheckout, setCurrentCheckout] = useState();
 
   const [videoFade, setVideoFade] = useSpring(() => ({
@@ -91,11 +92,11 @@ function App(props) {
   }
 
   function openCart(e) {
-    setCartModal(true);
+    setPageModal({ open: true, type: "cart" });
   }
 
   function closeCart() {
-    setCartModal(false);
+    setPageModal({ open: false, type: null });
   }
 
   return (
@@ -115,40 +116,19 @@ function App(props) {
         <source src={waterBg} type="video/webm" />
       </animated.video>
       <Modal
-        isOpen={cartModal}
+        isOpen={pageModal.open}
         onRequestClose={closeCart}
         appElement={document.getElementById("App")}
         className="Modal"
         overlayClassName="Overlay"
         closeTimeoutMS={200}
       >
-        <video className="bg-vid" autoPlay playsInline loop={true} muted>
-          <source src={waterBg} type="video/webm" />
-        </video>
-        <div className="modal-header" />
-
-        {currentCheckout && currentCheckout.lineItems.length > 0 ? (
-          <div>
-            <div className="cart-contents">
-              {currentCheckout.lineItems.map(item => {
-                return (
-                  <Item data={item} removeItem={removeFromCart} key={item.id} />
-                );
-              })}
-            </div>
-            <div className="modal-footer">
-              <div className="total-price">
-                total:{" "}
-                {currentCheckout && currentCheckout.totalPrice.split(".")[0]}€
-              </div>
-              <div className="checkout-btn" onClick={openShopifyCart}>
-                check out
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div>your cart is empty</div>
-        )}
+        <Cart
+          videosrc={waterBg}
+          checkout={currentCheckout}
+          removeItem={removeFromCart}
+          openShopify={openShopifyCart}
+        />
         <div className="close-modal" onClick={closeCart}>
           back
         </div>
