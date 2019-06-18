@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/florange-store/static/css/main.d1a8fbc0.chunk.css",
-    "main.js": "/florange-store/static/js/main.cd4620ed.chunk.js",
-    "main.js.map": "/florange-store/static/js/main.cd4620ed.chunk.js.map",
+    "main.css": "/florange-store/static/css/main.cd224e95.chunk.css",
+    "main.js": "/florange-store/static/js/main.3c4a8228.chunk.js",
+    "main.js.map": "/florange-store/static/js/main.3c4a8228.chunk.js.map",
     "runtime~main.js": "/florange-store/static/js/runtime~main.9de3f624.js",
     "runtime~main.js.map": "/florange-store/static/js/runtime~main.9de3f624.js.map",
-    "static/js/2.65aa58d0.chunk.js": "/florange-store/static/js/2.65aa58d0.chunk.js",
-    "static/js/2.65aa58d0.chunk.js.map": "/florange-store/static/js/2.65aa58d0.chunk.js.map",
+    "static/js/2.1755ce5d.chunk.js": "/florange-store/static/js/2.1755ce5d.chunk.js",
+    "static/js/2.1755ce5d.chunk.js.map": "/florange-store/static/js/2.1755ce5d.chunk.js.map",
     "index.html": "/florange-store/index.html",
-    "precache-manifest.b901b0eddb8e50ee2c4e7d50ce6f1e2f.js": "/florange-store/precache-manifest.b901b0eddb8e50ee2c4e7d50ce6f1e2f.js",
+    "precache-manifest.1a163663a72c26d00dea74ae30e2a5e0.js": "/florange-store/precache-manifest.1a163663a72c26d00dea74ae30e2a5e0.js",
     "service-worker.js": "/florange-store/service-worker.js",
-    "static/css/main.d1a8fbc0.chunk.css.map": "/florange-store/static/css/main.d1a8fbc0.chunk.css.map",
+    "static/css/main.cd224e95.chunk.css.map": "/florange-store/static/css/main.cd224e95.chunk.css.map",
     "static/media/logo.png": "/florange-store/static/media/logo.04958462.png",
     "static/media/waterbg.webm": "/florange-store/static/media/waterbg.5f867c85.webm"
   }
