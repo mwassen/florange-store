@@ -20,12 +20,12 @@ function SlideShow(props) {
           .filter(image => {
             const regex = /(\.gif)/g;
 
-            return image.src.search(regex) == -1;
+            return image.src.search(regex) === -1;
           })
           .map(image => {
             return (
               <div key={image.id}>
-                <img src={image.src} className="slideImg" />
+                <img src={image.src} alt={image.title} className="slideImg" />
               </div>
             );
           })}

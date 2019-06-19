@@ -6,8 +6,9 @@ import Cart from "./Cart";
 import Modal from "react-modal";
 import logo from "../assets/logo.png";
 import { useSpring, animated } from "react-spring";
+
 // import poolBg from "../assets/poolbg.png";
-import waterBg from "../assets/waterbg.webm";
+import waterBg from "../assets/waterbg.mp4";
 
 import "../css/App.css";
 import SlideShow from "./SlideShow";
@@ -109,19 +110,18 @@ function App(props) {
 
   return (
     <div className="container">
-      {/* <img className="bg-img" src={poolBg} /> */}
       <animated.video
         className="bg-vid"
+        muted
         autoPlay
         playsInline
         loop={true}
-        muted
         style={videoFade}
         onCanPlayThrough={() => {
           setVideoFade({ opacity: 1 });
         }}
       >
-        <source src={waterBg} type="video/webm" />
+        <source src={waterBg} type="video/mp4" />
       </animated.video>
       <Modal
         isOpen={pageModal.open}
@@ -131,8 +131,8 @@ function App(props) {
         overlayClassName="Overlay"
         closeTimeoutMS={200}
       >
-        <video className="bg-vid" autoPlay playsInline loop={true} muted>
-          <source src={waterBg} type="video/webm" />
+        <video muted className="bg-vid" autoPlay playsInline loop={true}>
+          <source src={waterBg} type="video/mp4" />
         </video>
 
         {pageModal.type === "cart" && (
