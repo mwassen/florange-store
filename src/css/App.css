@@ -98,10 +98,24 @@ html {
   top: 16px;
   cursor: pointer;
   font-size: 18px;
+  display: flex;
+}
+
+.cart-items {
+  margin-right: 5px;
+  padding: 0px 7px 0px 7px;
+  background-color: white;
+  color: #283f6b;
+  font-weight: 800;
+  border-radius: 5px;
 }
 
 .shopping-cart:hover {
   color: #e9be58;
+}
+
+.shopping-cart:hover .cart-items {
+  background-color: #e9be58;
 }
 
 .contact-links {

@@ -104,7 +104,7 @@ function App(props) {
     setPageModal({ open: false });
     setTimeout(() => {
       setPageModal({ type: null, item: null });
-    }, 300);
+    }, 500);
   }
 
   return (
@@ -197,6 +197,13 @@ function App(props) {
           </a>
         </footer>
         <div className="shopping-cart" onClick={openCart}>
+          {currentCheckout && currentCheckout.lineItems.length > 0 && (
+            <div className="cart-items">
+              {currentCheckout.lineItems.reduce((acc, cur) => {
+                return acc + cur.quantity;
+              }, 0)}
+            </div>
+          )}
           Cart
         </div>
         <div className="contact-links">
@@ -207,7 +214,7 @@ function App(props) {
           >
             Instagram
           </a>
-          <a href="mailto:someone@yoursite.com">Contact</a>
+          <a href="mailto:viktor.palm93@gmail.com">Contact</a>
         </div>
       </div>
     </div>
