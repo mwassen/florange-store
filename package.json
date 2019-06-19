@@ -9,8 +9,10 @@
     "react-modal": "^3.8.1",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.4",
+    "react-slick": "^0.24.0",
     "react-spring": "^8.0.20",
-    "shopify-buy": "^2.2.4"
+    "shopify-buy": "^2.2.4",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

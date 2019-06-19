@@ -9,7 +9,9 @@ function Variant(props) {
   return (
     <div
       className={
-        props.data.title === props.selected.title ? "selected" : "size"
+        props.selected && props.data.title === props.selected.title
+          ? "selected"
+          : "size"
       }
       key={props.data.id}
       onClick={onSizeClick}

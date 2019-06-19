@@ -96,12 +96,15 @@ function App(props) {
     setPageModal({ open: true, type: "cart" });
   }
 
-  function openSlideShow(e) {
-    setPageModal({ open: true, type: "slides" });
+  function openSlideShow(item) {
+    setPageModal({ open: true, type: "slides", data: item });
   }
 
   function closeModal() {
-    setPageModal({ open: false, type: null });
+    setPageModal({ open: false });
+    setTimeout(() => {
+      setPageModal({ type: null, item: null });
+    }, 300);
   }
 
   return (
@@ -139,7 +142,7 @@ function App(props) {
             openShopify={openShopifyCart}
           />
         )}
-        {pageModal.type === "slides" && <SlideShow />}
+        {pageModal.type === "slides" && <SlideShow product={pageModal.data} />}
 
         <div className="close-modal" onClick={closeModal}>
           back

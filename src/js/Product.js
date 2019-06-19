@@ -1,17 +1,23 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Variant from "./Variant";
 import { useSpring, animated } from "react-spring";
 import "../css/App.css";
 import Select from "react-select";
 
 function Product(props) {
-  const [selectVariant, setSelectVariant] = useState(props.data.variants[0]);
+  const [selectVariant, setSelectVariant] = useState(null);
 
   const [fade, setFade] = useSpring(() => ({
     config: { friction: 66 },
     opacity: 0
   }));
+
+  useEffect(() => {
+    if (props.data.variants.length === 1) {
+      setSelectVariant(props.data.variants[0]);
+    }
+  }, [props.data.variants]);
 
   function handleSizeChange(newSize) {
     setSelectVariant(newSize);
@@ -23,10 +29,6 @@ function Product(props) {
 
   function openSlides(e) {
     props.openSlideShow(props.data);
-  }
-
-  function selectChange(e) {
-    setSelectVariant(props.data.variants[e.target.value]);
   }
 
   function createSelect(variants) {
@@ -75,41 +77,32 @@ function Product(props) {
                   className="sizeSelect"
                   options={createSelect(props.data.variants)}
                   width={900}
-                  isClearable={true}
+                  isClearable={false}
+                  isSearchable={false}
                   onChange={option => {
                     if (option !== null) setSelectVariant(option.value);
                   }}
                 />
-                {/* <select
-                  value={selectVariant.title}
-                  onChange={selectChange}
-                  className="product-variants-dropdown"
-                >
-                  {props.data.variants.map((variant, ind) => {
-                    return (
-                      <option key={variant.id} value={ind}>
-                        {variant.title}
-                      </option>
-                    );
-                  })}
-                </select> */}
               </div>
             )}
           </div>
         )}
-        {selectVariant.available ? (
-          <div className="add-to-cart" onClick={addItem}>
-            add to cart
-          </div>
+        {selectVariant ? (
+          selectVariant.available ? (
+            <div className="add-to-cart" onClick={addItem}>
+              add to cart
+            </div>
+          ) : (
+            <div className="sold-out">
+              <span role="img" aria-label="skull emoji">
+                💀
+              </span>
+              sold out
+            </div>
+          )
         ) : (
-          <div className="sold-out">
-            <span role="img" aria-label="skull emoji">
-              💀
-            </span>
-            sold out
-            {/* <span role="img" aria-label="skull emoji">
-            💀
-          </span> */}
+          <div className="add-to-cart-noselect" onClick={addItem}>
+            select size
           </div>
         )}
       </div>

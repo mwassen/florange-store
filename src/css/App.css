@@ -147,12 +147,15 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 30px;
   margin-bottom: 10px;
 }
 
 .product-variants-dropdown {
-  width: 150px;
+  width: 200px;
   color: #283f6b;
+  opacity: 0.85;
+  background-color: green;
   margin-bottom: 10px;
 }
 
@@ -182,6 +185,13 @@ html {
   width: 100px;
   font-size: 20px;
   cursor: pointer;
+  padding-bottom: 5px;
+}
+
+.add-to-cart-noselect {
+  height: 25px;
+  width: 100px;
+  font-size: 14px;
   padding-bottom: 5px;
 }
 
@@ -305,6 +315,34 @@ a:hover {
 
 .checkout-btn:hover {
   color: #e9be58;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshow {
+  width: 85vw;
+  height: 80vh;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.slick-track .slick-slide {
+  display: flex !important;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideImg {
+  max-width: 100%;
+  max-height: 75vh;
 }
 
 .ReactModal__Body--open {
