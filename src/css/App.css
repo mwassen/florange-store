@@ -45,7 +45,6 @@ html {
 .florange-logo {
   height: 400px;
   pointer-events: none;
-  /* user-select: none; */
 }
 
 .App-header {
@@ -361,7 +360,8 @@ a:hover {
 
 .ReactModal__Overlay {
   opacity: 0;
-  transition: opacity 400ms ease-in-out;
+  transition-property: opacity;
+  transition-duration: 400ms ease-in-out;
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 400ms;
 }

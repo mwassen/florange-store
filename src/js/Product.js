@@ -14,6 +14,7 @@ function Product(props) {
   }));
 
   useEffect(() => {
+    // console.log(props.data.variants);
     if (props.data.variants.length === 1) {
       setSelectVariant(props.data.variants[0]);
     }

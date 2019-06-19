@@ -9,7 +9,7 @@ import "../css/App.css";
 function SlideShow(props) {
   const settings = {
     fade: true,
-    speed: 500,
+    speed: 400,
     adaptiveHeight: true
   };
 
