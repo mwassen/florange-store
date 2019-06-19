@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2301cef81f87b328f8878392eaf83a56",
+    "revision": "791d2521ce0ed835a5f61dfaff60163a",
     "url": "/florange-store/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/florange-store/static/css/2.dcc7c96f.chunk.css"
   },
   {
-    "revision": "eb94cc850770ea3448af",
-    "url": "/florange-store/static/css/main.874537b0.chunk.css"
+    "revision": "e5346376b14e800bc7ca",
+    "url": "/florange-store/static/css/main.6947e343.chunk.css"
   },
   {
     "revision": "7cd8e2cc95b8abc67dc0",
     "url": "/florange-store/static/js/2.fe1341e8.chunk.js"
   },
   {
-    "revision": "eb94cc850770ea3448af",
-    "url": "/florange-store/static/js/main.e8a40b7d.chunk.js"
+    "revision": "e5346376b14e800bc7ca",
+    "url": "/florange-store/static/js/main.6939030e.chunk.js"
   },
   {
     "revision": "74a8dae88be80a6c7e04",
