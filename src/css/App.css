@@ -152,6 +152,11 @@ html {
   margin-bottom: 10px;
 }
 
+.product-description {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
 .product-price {
   font-size: 20px;
   margin-bottom: 10px;

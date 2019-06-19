@@ -53,6 +53,9 @@ function Product(props) {
       />
       <div className="product-details">
         <div className="product-name">{props.data.title}</div>
+        {props.data.description !== "" && (
+          <div className="product-description">{props.data.description}</div>
+        )}
         <div className="product-price">
           {props.data.variants[0].price.split(".")[0]}€
         </div>
