@@ -6,10 +6,7 @@ import Cart from "./Cart";
 import Modal from "react-modal";
 import logo from "../assets/logo.png";
 import { useSpring, animated } from "react-spring";
-
-// import poolBg from "../assets/poolbg.png";
 import waterBg from "../assets/waterbg.mp4";
-
 import "../css/App.css";
 import SlideShow from "./SlideShow";
 
@@ -18,7 +15,9 @@ function App(props) {
   const [checkoutId, setCheckoutId] = useState(
     localStorage.getItem("checkoutId")
   );
-  const [pageModal, setPageModal] = useState({ open: false, type: null });
+  const [pageModal, setPageModal] = useState(false);
+  const [modalData, setModalData] = useState({ type: null, data: null });
+
   const [currentCheckout, setCurrentCheckout] = useState();
 
   const [videoFade, setVideoFade] = useSpring(() => ({
@@ -94,17 +93,19 @@ function App(props) {
   }
 
   function openCart(e) {
-    setPageModal({ open: true, type: "cart" });
+    setModalData({ type: "cart" });
+    setPageModal(true);
   }
 
   function openSlideShow(item) {
-    setPageModal({ open: true, type: "slides", data: item });
+    setModalData({ type: "slides", data: item });
+    setPageModal(true);
   }
 
   function closeModal() {
-    setPageModal({ open: false });
+    setPageModal(false);
     setTimeout(() => {
-      setPageModal({ type: null, item: null });
+      setModalData({ type: null, data: null });
     }, 500);
   }
 
@@ -124,25 +125,25 @@ function App(props) {
         <source src={waterBg} type="video/mp4" />
       </animated.video>
       <Modal
-        isOpen={pageModal.open}
+        isOpen={pageModal}
         onRequestClose={closeModal}
         appElement={document.getElementById("App")}
         className="Modal"
         overlayClassName="Overlay"
-        closeTimeoutMS={200}
+        closeTimeoutMS={400}
       >
         <video muted className="bg-vid" autoPlay playsInline loop={true}>
           <source src={waterBg} type="video/mp4" />
         </video>
 
-        {pageModal.type === "cart" && (
+        {modalData.type === "cart" && (
           <Cart
             checkout={currentCheckout}
             removeItem={removeFromCart}
             openShopify={openShopifyCart}
           />
         )}
-        {pageModal.type === "slides" && <SlideShow product={pageModal.data} />}
+        {modalData.type === "slides" && <SlideShow product={modalData.data} />}
 
         <div className="close-modal" onClick={closeModal}>
           back
