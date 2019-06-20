@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import "../css/App.css";
+import "../css/App.scss";
 
 function Item(props) {
   function onRemoveItem(e) {

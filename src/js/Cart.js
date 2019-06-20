@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
-import "../css/App.css";
+import "../css/App.scss";
 import Item from "./Item";
 
 function Cart(props) {

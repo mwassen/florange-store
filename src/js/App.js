@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import logo from "../assets/logo.png";
 import { useSpring, animated } from "react-spring";
 import waterBg from "../assets/waterbg.mp4";
-import "../css/App.css";
+import "../css/App.scss";
 import SlideShow from "./SlideShow";
 
 function App(props) {

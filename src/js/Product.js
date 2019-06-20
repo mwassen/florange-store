@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Variant from "./Variant";
 import { useSpring, animated } from "react-spring";
-import "../css/App.css";
+import "../css/App.scss";
 import Select from "react-select";
 
 function Product(props) {
