@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/florange-store/static/css/main.6947e343.chunk.css",
-    "main.js": "/florange-store/static/js/main.6939030e.chunk.js",
-    "main.js.map": "/florange-store/static/js/main.6939030e.chunk.js.map",
-    "runtime~main.js": "/florange-store/static/js/runtime~main.9de3f624.js",
-    "runtime~main.js.map": "/florange-store/static/js/runtime~main.9de3f624.js.map",
-    "static/css/2.dcc7c96f.chunk.css": "/florange-store/static/css/2.dcc7c96f.chunk.css",
-    "static/js/2.fe1341e8.chunk.js": "/florange-store/static/js/2.fe1341e8.chunk.js",
-    "static/js/2.fe1341e8.chunk.js.map": "/florange-store/static/js/2.fe1341e8.chunk.js.map",
-    "index.html": "/florange-store/index.html",
-    "precache-manifest.5fd90d40fe939be356e23cfc288c0273.js": "/florange-store/precache-manifest.5fd90d40fe939be356e23cfc288c0273.js",
-    "service-worker.js": "/florange-store/service-worker.js",
-    "static/css/2.dcc7c96f.chunk.css.map": "/florange-store/static/css/2.dcc7c96f.chunk.css.map",
-    "static/css/main.6947e343.chunk.css.map": "/florange-store/static/css/main.6947e343.chunk.css.map",
-    "static/media/logo.png": "/florange-store/static/media/logo.04958462.png",
-    "static/media/slick-theme.css": "/florange-store/static/media/slick.f97e3bbf.svg",
-    "static/media/waterbg.mp4": "/florange-store/static/media/waterbg.9428f160.mp4"
+    "main.css": "/static/css/main.eb14b7c8.chunk.css",
+    "main.js": "/static/js/main.a952784d.chunk.js",
+    "main.js.map": "/static/js/main.a952784d.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.ddaa9116.chunk.css": "/static/css/2.ddaa9116.chunk.css",
+    "static/js/2.fe1341e8.chunk.js": "/static/js/2.fe1341e8.chunk.js",
+    "static/js/2.fe1341e8.chunk.js.map": "/static/js/2.fe1341e8.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.d3636f380927830b710ef7646823b380.js": "/precache-manifest.d3636f380927830b710ef7646823b380.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.ddaa9116.chunk.css.map": "/static/css/2.ddaa9116.chunk.css.map",
+    "static/css/main.eb14b7c8.chunk.css.map": "/static/css/main.eb14b7c8.chunk.css.map",
+    "static/media/logo.png": "/static/media/logo.04958462.png",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg",
+    "static/media/waterbg.mp4": "/static/media/waterbg.9428f160.mp4"
   }
 }
