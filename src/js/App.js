@@ -116,7 +116,7 @@ function App(props) {
         muted
         autoPlay
         playsInline
-        loop={true}
+        loop
         style={videoFade}
         onCanPlayThrough={() => {
           setVideoFade({ opacity: 1 });

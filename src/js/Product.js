@@ -46,7 +46,7 @@ function Product(props) {
       <img
         className="product-img"
         alt={props.data.title + " image"}
-        src={props.data.images[0].src}
+        src={selectVariant ? selectVariant.image.src : props.data.images[0].src}
         onClick={openSlides}
         onLoad={() => {
           setFade({ opacity: 1 });
