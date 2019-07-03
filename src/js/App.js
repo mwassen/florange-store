@@ -88,7 +88,7 @@ function App(props) {
 
   function openShopifyCart(e) {
     props.client.checkout.fetch(checkoutId).then(checkout => {
-      if (checkout.lineItems.length > 0) window.open(checkout.webUrl);
+      if (checkout.lineItems.length > 0) window.location.href = checkout.webUrl;
     });
   }
 
