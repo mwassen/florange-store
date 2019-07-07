@@ -341,9 +341,14 @@ a:hover {
   /* user-select: none; */
 }
 
+.slick-list .slick-slider {
+  width: 100%;
+}
+
 .slick-track .slick-slide {
   display: flex !important;
   height: 65vh;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }
