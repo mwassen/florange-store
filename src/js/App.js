@@ -160,19 +160,26 @@ function App(props) {
           />
         </header>
 
-        {products.map(product => {
-          return (
-            <Product
-              key={product.id}
-              data={product}
-              cart={addToCart}
-              openSlideShow={openSlideShow}
-              // images={product.images}
-              // title={product.title}
-              // price={}
-            />
-          );
-        })}
+        {products
+          .sort((firstEl, secondEl) => {
+            return (
+              secondEl.variants[0].attrs.price.value -
+              firstEl.variants[0].attrs.price.value
+            );
+          })
+          .map(product => {
+            return (
+              <Product
+                key={product.id}
+                data={product}
+                cart={addToCart}
+                openSlideShow={openSlideShow}
+                // images={product.images}
+                // title={product.title}
+                // price={}
+              />
+            );
+          })}
         <footer className="App-footer">
           <a href="https://mswsn.io" target="_blank" rel="noopener noreferrer">
             <animated.div
