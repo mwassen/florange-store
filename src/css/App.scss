@@ -14,9 +14,9 @@ body {
 .container {
   position: fixed;
   background-color: $bg-blue;
-  overflow: scroll;
+  overflow: auto;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   user-select: none;
 }
 
@@ -35,7 +35,7 @@ body {
   text-align: center;
   color: white;
   font-family: "Nunito", sans-serif;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,7 +86,7 @@ body {
 
 .shopping-cart {
   position: fixed;
-  right: 16px;
+  right: 30px;
   top: 16px;
   cursor: pointer;
   font-size: 18px;
@@ -115,7 +115,7 @@ body {
   flex-direction: column;
   text-align: right;
   position: fixed;
-  right: 16px;
+  right: 30px;
   bottom: 16px;
   height: 50px;
   justify-content: space-between;
